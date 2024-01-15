@@ -27,6 +27,7 @@ function encryptChar(char, factor) {
 }
 
 function caesarCipher(string, factor) {
+    if (!factor) factor = 0;
     let encryptedStr = '';
     for (let i = 0; i < string.length; i++) {
         encryptedStr += encryptChar(string[i], factor);

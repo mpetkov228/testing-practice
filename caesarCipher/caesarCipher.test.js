@@ -53,6 +53,5 @@ test('Test on no input', () => {
 });
 
 test('Test when shift factor not provided', () => {
-    expect(() => caesarCipher('abc')).toBe('abc');
-
+    expect(caesarCipher('abc')).toBe('abc');
 });
