@@ -1,4 +1,4 @@
-const { add, subtract, divide } = require('./calculator.js')
+const { add, subtract, divide, multiply } = require('./calculator.js')
 
 // Add function tests
 test('Add happy path (example 1)', () => {
@@ -113,4 +113,41 @@ test('Test on arguments of wrong type (example 2)', () => {
 
 test('Test on arguments of wrong type (example 3)', () => {
     expect(() => divide([1, 2], 3)).toThrow(TypeError);
+});
+
+// Multiply function tests
+test('Multiply happy path (example 1)', () => {
+    expect(multiply(2, 3)).toBe(6);
+});
+
+test('Multiply happy path (example 2)', () => {
+    expect(multiply(4, 2)).toBe(8);
+});
+
+test('Multiply floating point numbers (example 1)', () => {
+    expect(multiply(0.2, 0.3)).toBeCloseTo(0.06);
+});
+
+test('Multiply floating point numbers (example 2)', () => {
+    expect(multiply(0.15, 0.51)).toBeCloseTo(0.076);
+});
+
+test('Multiply by zero', () => {
+    expect(multiply(4, 0)).toBe(0);
+});
+
+test('Test on no input', () => {
+    expect(() => multiply()).toThrow(TypeError);
+});
+
+test('Test on wrong number of arguments', () => {
+    expect(() => multiply(2)).toThrow(TypeError);
+});
+
+test('Test on arguments of wrong type (example 1)', () => {
+    expect(() => multiply('ab', 'cd')).toThrow(TypeError);
+});
+
+test('Test on arguments of wrong type (example 2)', () => {
+    expect(() => multiply(3, [2, 3])).toThrow(TypeError);
 });

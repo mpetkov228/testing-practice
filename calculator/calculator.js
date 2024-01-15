@@ -26,10 +26,19 @@ function divide(a, b) {
     return a / b;
 }
 
+function multiply(a, b) {
+    if (typeof a !== 'number' || typeof b !== 'number') {
+        throw new TypeError('Invalid input!');
+    }
+    
+    return a * b;
+}
+
 const calculator = {
     add,
     subtract,
     divide,
-}
+    multiply
+};
 
 module.exports = calculator;
